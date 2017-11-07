@@ -3,10 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: __dirname + '/src/index.jsx',
+  entry: {
+    app: path.resolve(__dirname + '/src/index.jsx'),
+  },
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
 
@@ -20,8 +22,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'sass-loader',
+          {loader: 'style-loader'},
+          {loader: 'css-loader'},
+          {loader: 'sass-loader'},
         ],
       },
       {
@@ -44,6 +47,9 @@ module.exports = {
   devtool: 'source-map',
 
   devServer: {
-    publicPath: path.join('/dist/'),
+    contentBase: path.join(__dirname, 'dist'),
+    port: 9000,
+    open: true,
+    watchContentBase: true,
   },
 };

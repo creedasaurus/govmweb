@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import VmApp from './app/VmApp.jsx';
 import './index.scss';
 
-console.log('Hello Webpack React stuff!');
+ReactDOM.render(<VmApp/>, document.getElementById('go-vm'));
