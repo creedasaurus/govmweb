@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
-@import '../common/_cursor';
 
 
 #editor-container {
@@ -47,19 +46,6 @@
     }
   }
 
-  .overlay {
-    position: absolute;
-    left: 73px;
-
-    #cursor-thing {
-      @include blinking-cursor;
-      position: relative;
-      background-color: black;
-      left: 18px;
-      width: 2px;
-      height: 19px;
-    }
-  }
 
 
   #code-editor {

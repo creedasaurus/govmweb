@@ -1,10 +1,35 @@
 import React from 'react';
-
+import Cursor from './Cursor/Cursor.jsx';
 import './Editor.scss';
 
 class Editor extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      cursor: {
+        top: 38,
+        left: 27
+      }
+    };
+
+    this.onKeyPress = this.onKeyPress.bind(this);
+  }
+
+  onKeyPress(e) {
+    console.log(e.key);
+    let left;
+    let top;
+
+    switch (e.key) {
+      case 'ArrowUp':
+        top = this.state.cursor.top - 19;
+        break;
+      case 'ArrowDown':
+        top = this.state.cursor.top + 19;
+        break;
+
+    }
+    this.setState({cursor: {top: top, left: left}});
   }
 
   render() {
@@ -28,12 +53,7 @@ class Editor extends React.Component {
             </div>
           </div>
 
-          <div className="overlay">
-            <div className="overlay-line">
-              <div id="cursor-thing">
-              </div>
-            </div>
-          </div>
+          <Cursor left={this.state.cursor.left} top={this.state.cursor.top}/>
 
           <div id="code-editor">
             <div className="editor-line">
@@ -59,7 +79,7 @@ class Editor extends React.Component {
             </div>
           </div>
 
-          <textarea name="main-input" id="input-follower">
+          <textarea autoFocus name="main-input" id="input-follower" onKeyDown={this.onKeyPress}>
           </textarea>
         </div>
     )

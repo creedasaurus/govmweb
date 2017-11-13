@@ -1,0 +1,13 @@
+@import '../../common/_cursor';
+
+.overlay {
+    position: absolute;
+    left: 73px;
+    #cursor-thing {
+        @include blinking-cursor;
+        position: relative;
+        background-color: black;
+        width: 2px;
+        height: 19px;
+    }
+}
