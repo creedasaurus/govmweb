@@ -17,18 +17,31 @@ class Editor extends React.Component {
 
   onKeyPress(e) {
     console.log(e.key);
-    let left;
-    let top;
-
+    let left = this.state.cursor.left;
+    let top = this.state.cursor.top;
+    
     switch (e.key) {
       case 'ArrowUp':
-        top = this.state.cursor.top - 19;
+        top -= 19;
         break;
       case 'ArrowDown':
-        top = this.state.cursor.top + 19;
+        top += 19;
         break;
-
+      case 'ArrowLeft':
+        left -= 9;
+        break;
+      case 'ArrowRight':
+        left += 9;
+        break;
     }
+
+    if (left < 0) {
+      left = 0;
+    }
+    if (top < 0) {
+      top = 0;
+    }
+
     this.setState({cursor: {top: top, left: left}});
   }
 
