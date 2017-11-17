@@ -1,6 +1,8 @@
 import React from 'react';
 import './VmApp.scss';
-import Editor from './Editor.jsx';
+// SOMEDAY
+// import Editor from './Editor.jsx';
+import Uploader from './Uploader/Uploader.jsx'
 
 class VmApp extends React.Component {
   constructor(props) {
@@ -12,7 +14,7 @@ class VmApp extends React.Component {
     return (
         <div id="vm-container">
           <h1>COOL</h1>
-          <Editor/>
+          <Uploader></Uploader>
         </div>
     );
   }
