@@ -3,7 +3,7 @@ import React from 'react';
 import LineNumber from './Lines/LineNumber.jsx';
 import './Editor.scss';
 
-class Editor extends React.Component {
+class Editor extends React.Component         {
   constructor(props) {
     super(props);
     this.state = {};
@@ -15,13 +15,15 @@ class Editor extends React.Component {
     let lines = [];
     if (this.props.editorText !== "") {
       lines = this.props.editorText.split('\n').map((line) => {
-        const words = line.split(' ').map((word) => {
-          return <span>{word} </span>
-        });
+        // const words = line.split(' ').map((word) => {
+        //   return <span>{word} </span>
+        // });
+        let cat = "wow there is  \t   a cat";
+        // console.log(String.raw`${cat}`);
         return (
           <div className="editor-line">
             <span>
-              {words}
+              <pre>{cat}</pre>
             </span>
           </div>
         )
