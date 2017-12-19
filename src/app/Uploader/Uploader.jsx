@@ -1,22 +1,28 @@
 import React from 'react';
-import Dropzone from 'react-dropzone';
+// import Dropzone from 'react-dropzone';
 
 class Uploader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleUploadFile = this.handleUploadFile.bind(this);
+    }
+
+    handleUploadFile(e) {
+        let reader = new FileReader();
+        reader.onloadend = () => {
+            this.props.setEditorText(reader.result);
+        }
+        reader.readAsText(e.target.files[0]);
+    }
+
     render() {
         return (
-            <Dropzone accept="text/plain">
-                {({isDragActive, isDragReject, acceptedFiles, rejectedFiles}) => {
-                    if (isDragActive) {
-                        return "This file is authorized";
-                    }
-                    if (isDragReject) {
-                        return "This file is not authorized";
-                    }
-                    return acceptedFiles.length || rejectedFiles.length
-                        ? `Accepted ${acceptedFiles.length}, rejected ${rejectedFiles.length} files`
-                        : "Try dropping some files.";
-                }}
-            </Dropzone>
+            <div>
+                <input type="file" 
+                id="fileUploader" 
+                name="file"
+                onChange={this.handleUploadFile}/>
+            </div>
         )
     }
 }
