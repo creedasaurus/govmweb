@@ -1,23 +1,28 @@
 import React from 'react';
 
-class LineNumber extends React.Component {
+class LineText extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   render() {
-    const lineText = this.props.line.split(' ');
+    const lineText = this.props.line.split('')
+          .map((c, indx) => {
+            if (c === ' ') {
+              return <span key={indx.toString()}>&nbsp;</span>;
+            }
+            return <span key={indx.toString()}>{c}</span>;
+          });
+
+
     return (
       <div className="editor-line">
         <span>
-          <span>asdf</span>
-          <span>asdf</span>
-          <span>asdf</span>
+          {lineText}
         </span>
       </div>
     )
   }
 }
 
-export default LineNumber;
+export default LineText;

@@ -44,7 +44,7 @@ module.exports = {
     }),
   ],
 
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

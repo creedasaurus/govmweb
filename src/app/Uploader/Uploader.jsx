@@ -1,5 +1,5 @@
 import React from 'react';
-// import Dropzone from 'react-dropzone';
+import './Uploader.scss';
 
 class Uploader extends React.Component {
     constructor(props) {
@@ -17,9 +17,9 @@ class Uploader extends React.Component {
 
     render() {
         return (
-            <div>
-                <input type="file" 
-                id="fileUploader" 
+            <div id="assembly-uploader">
+                <input type="file"
+                id="fileUploader"
                 name="file"
                 onChange={this.handleUploadFile}/>
             </div>

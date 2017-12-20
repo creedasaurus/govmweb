@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Mono');
 #editor-container {
+  border-width: 10px;
+  border-color: black;
+  margin-top: 15px;
   font-family: 'Fira Mono', monospace;
   left: 20px;
+
   #input-follower {
     width: 1px;
     height: 1px;
@@ -15,6 +19,7 @@
     resize: none;
     overflow: hidden;
   }
+
   #margin-bar {
     width: 45px;
     position: absolute;
@@ -24,6 +29,8 @@
       height: 19px;
       top: 0;
       .line-number {
+        float: right;
+        margin-right: 7px;
         left: 19px;
         width: 27px;
         text-align: right;
@@ -32,7 +39,7 @@
   }
   #code-editor {
     position: relative;
-    left: 65px;
+    left: 55px;
     height: 1000px;
     width: 800px;
     .editor-line {

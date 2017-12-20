@@ -17,7 +17,7 @@ class VmApp extends React.Component {
   render() {
     return (
         <div id="vm-container">
-          <h1>COOL</h1>
+          <h1>Golang Virtual Machine</h1>
           <Uploader setEditorText={this.setEditorText}></Uploader>
           <Editor editorText={this.state.editorText}></Editor>
         </div>
