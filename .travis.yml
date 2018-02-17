@@ -29,6 +29,6 @@ deploy:
   on: *2
 script:
   - npm build 
-  - zip -r latest ./dist
+  - zip -r latest dist
   - mkdir -p dpl_cd_upload
   - mv latest.zip dpl_cd_upload/latest.zip
