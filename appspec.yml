@@ -1,6 +1,6 @@
 version: 0.0
 os: linux
 files:
-  - source: ./
-    destination: /home/ubuntu/creedio
+  - source: ./dist
+    destination: /var/www/html
 
