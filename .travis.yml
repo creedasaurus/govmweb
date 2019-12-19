@@ -1,35 +1,34 @@
 language: node_js
 node_js:
-    - "lts/*"
-    - "8"
+    - "12"
 
 cache:
   directories:
     - "node_modules"
-
-deploy:
-- provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  local_dir: dpl_cd_upload
-  skip_cleanup: true
-  on: &2
-    repo: creedasaurus/govmweb
-  bucket: creedio-build-bucket
-  region: us-west-2
-- provider: codedeploy
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-  bucket: creedio-build-bucket
-  key: latest.zip
-  bundle_type: zip
-  application: creedio
-  deployment_group: CreedioDeployGroup
-  region: us-west-2
-  on: *2
+# removing AWS deploy for now
+#deploy:
+#- provider: s3
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
+#  local_dir: dpl_cd_upload
+#  skip_cleanup: true
+#  on: &2
+#    repo: creedasaurus/govmweb
+#  bucket: creedio-build-bucket
+#  region: us-west-2
+#- provider: codedeploy
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
+#  bucket: creedio-build-bucket
+#  key: latest.zip
+#  bundle_type: zip
+#  application: creedio
+#  deployment_group: CreedioDeployGroup
+#  region: us-west-2
+#  on: *2
 script:
   - npm run webpack
   - rm -rf node_modules
-  - zip -r latest *
-  - mkdir -p dpl_cd_upload
-  - mv latest.zip dpl_cd_upload/latest.zip
+#  - zip -r latest *
+#  - mkdir -p dpl_cd_upload
+#  - mv latest.zip dpl_cd_upload/latest.zip
