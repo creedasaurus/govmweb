@@ -35,7 +35,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "bootstrap": "^4.5.1",
+    "bootstrap": "^4.5.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.2"
